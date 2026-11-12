@@ -153,6 +153,16 @@ ul li {
 .error { color: #b71c1c; margin: 0.5rem 0; font-weight: bold; }
 button:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-carta { display: block; margin: 1.25rem auto; }
+.carta-trigger { display: block; margin: 2rem auto; }
+.carta, .sorteo { text-align: center; }
+.carta { max-width: 560px; margin: 0 auto; background: #fff8e1; border: 3px solid #b71c1c; border-radius: 12px; padding: 2rem; }
+.carta select { display: block; margin: 1rem auto; min-width: 220px; padding: .65rem; font-size: 1rem; }
+.carta button { display: block; margin: .75rem auto; }
+.sorteo { padding: 2rem 0; }
+.ruleta { margin-left: auto; margin-right: auto; }
+.acta-final { text-align: center; }
+.acta-documento { text-align: left; }
+.contenedor button { display: block; margin-left: auto; margin-right: auto; }
 .acta-final { background: #fffdf5; border: 8px double #7b1e1e; padding: 2.5rem; color: #3e2723; box-shadow: 0 8px 20px #0003; }
 .acta-final h2, .acta-final h3 { font-family: Georgia, serif; color: #7b1e1e; }
 .acta-final h2 { text-align: center; letter-spacing: 0.08em; }
