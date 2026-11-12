@@ -138,6 +138,18 @@ ul li {
   color: #3e2723;
 }
 
+.formulario ul {
+  background: #fff;
+  border: 2px solid #d7ccc8;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+.formulario ul li,
+.formulario ul li strong,
+.formulario ul li span {
+  color: #3e2723;
+}
+
 .error { color: #b71c1c; margin: 0.5rem 0; font-weight: bold; }
 button:disabled { opacity: 0.5; cursor: not-allowed; }
 .acta-final { background: #fffdf5; border: 8px double #7b1e1e; padding: 2.5rem; color: #3e2723; box-shadow: 0 8px 20px #0003; }
