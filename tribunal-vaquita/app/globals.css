@@ -152,6 +152,7 @@ ul li {
 
 .error { color: #b71c1c; margin: 0.5rem 0; font-weight: bold; }
 button:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-carta { display: block; margin: 1.25rem auto; }
 .acta-final { background: #fffdf5; border: 8px double #7b1e1e; padding: 2.5rem; color: #3e2723; box-shadow: 0 8px 20px #0003; }
 .acta-final h2, .acta-final h3 { font-family: Georgia, serif; color: #7b1e1e; }
 .acta-final h2 { text-align: center; letter-spacing: 0.08em; }

@@ -87,7 +87,7 @@ export default function Página() {
         <div>
           {ganador && <p><strong>Quien más puso:</strong> {ganador.nombre}</p>}
           <FalloComponent fallo={fallo} onApelar={apelar} />
-          <button onClick={abrirCarta} className="btn-apelar">
+          <button onClick={abrirCarta} className="btn-carta">
             🔥 Abrir carta de exención
           </button>
         </div>
