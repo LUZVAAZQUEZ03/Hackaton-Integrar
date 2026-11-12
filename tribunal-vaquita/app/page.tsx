@@ -22,17 +22,21 @@ export default function Página() {
   const [decreto, setDecreto] = useState<string>("");
   const [premioInvalidado, setPremioInvalidado] = useState(false);
   const [definenLosAmigos, setDefinenLosAmigos] = useState(false);
+  const [deudas, setDeudas] = useState<Deuda[]>([]);
 
   const convocar = (ps: Participante[]) => {
     const de = calcularDeudas(ps);
     const ga = elegirGanador(ps);
     setFallo(emitirFallo(de));
+    setDeudas(de);
     setGanador(ga);
     setParticipantes(ps);
     setFase("fallo");
   };
 
   const apelar = () => {
+    setFallo(emitirFallo(deudas));
+    return;
     const de = fallo
       ? fallo.lineas.map((l) => {
           const match = l.match(/deberá abonar \$[\d.]+ a (.+?),/);
