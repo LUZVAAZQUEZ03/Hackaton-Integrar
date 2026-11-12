@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Formulario } from "@/components/Formulario";
 import { calcularDeudas, elegirGanador } from "@/lib/cuentas";
 import { emitirFallo } from "@/lib/jueces";
-import { Participante, Fallo } from "@/lib/tipos";
+import { Participante, Fallo, Deuda } from "@/lib/tipos";
+import { Fallo as FalloComponent } from "@/components/Fallo";
 
 type FasePagina = "formulario" | "fallo" | "carta" | "sorteo" | "ruleta" | "acta";
 
@@ -21,24 +22,30 @@ export default function Página() {
     setFase("fallo");
   };
 
+  const apelar = () => {
+    const de = fallo
+      ? fallo.lineas.map((l) => {
+          const match = l.match(/deberá abonar \$[\d.]+ a (.+?),/);
+          const deudorMatch = l.match(/([^ ]+) deberá abonar/);
+          return {
+            deudor: deudorMatch ? deudorMatch[1] : "",
+            acreedor: match ? match[1] : "",
+            monto: 0,
+          } as Deuda;
+        })
+      : [];
+    setFallo(emitirFallo(de));
+  };
+
   return (
     <main className="contenedor">
       {fase === "formulario" && (
         <Formulario onSubmit={convocar} />
       )}
       {fase === "fallo" && fallo && (
-        <div className="fallo">
-          <h2>Fallo del Tribunal</h2>
-          <p><strong>Juez:</strong> {fallo.juez} {fallo.emoji}</p>
-          <p><strong>Expediente:</strong> {fallo.expediente}</p>
+        <div>
           {ganador && <p><strong>Quien más puso:</strong> {ganador.nombre}</p>}
-          <p>{fallo.cierre}</p>
-          <ul>
-            {fallo.lineas.map((l: string, i: number) => (
-              <li key={i}>{l}</li>
-            ))}
-          </ul>
-          <button onClick={() => setFase("formulario")}>Nuevo caso</button>
+          <FalloComponent fallo={fallo} onApelar={apelar} />
         </div>
       )}
     </main>
