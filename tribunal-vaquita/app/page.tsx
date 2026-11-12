@@ -7,7 +7,9 @@ import { emitirFallo } from "@/lib/jueces";
 import { Participante, Fallo, Deuda } from "@/lib/tipos";
 import { Fallo as FalloComponent } from "@/components/Fallo";
 import { CartaExencion } from "@/components/CartaExencion";
-import { SEGMENTOS, sortearAmigo, resolver } from "@/lib/ruleta";
+import { sortearAmigo, resolver } from "@/lib/ruleta";
+import { Sorteo } from "@/components/Sorteo";
+import { Ruleta } from "@/components/Ruleta";
 
 type FasePagina = "formulario" | "fallo" | "carta" | "sorteo" | "ruleta" | "acta";
 
@@ -50,6 +52,7 @@ export default function Página() {
   };
 
   const onNominar = (nombre: string) => {
+    setDecreto(`Nominar: ${nombre} pagarÃ¡ la prÃ³xima cuenta de ${ganador?.nombre ?? "la persona exenta"}.`);
     setFase("acta");
   };
 
@@ -63,10 +66,8 @@ export default function Página() {
   };
 
   const onResultado = (segmentoId: string) => {
-    const g = ganador ?? { id: "", nombre: "", aportado: 0 };
-    const ps = participantes.map((p: any) => ({ id: p.id, nombre: p.nombre, aportado: p.aportado }));
-    const gAny = ganador ?? { id: "", nombre: "", aportado: 0 };
-    const r = resolver(segmentoId, ps, gAny, sorteado!);
+    if (!ganador || !sorteado) return;
+    const r = resolver(segmentoId, participantes, ganador, sorteado);
     setDecreto(r.texto);
     setPremioInvalidado(r.premioInvalidado);
     setDefinenLosAmigos(r.definenLosAmigos);

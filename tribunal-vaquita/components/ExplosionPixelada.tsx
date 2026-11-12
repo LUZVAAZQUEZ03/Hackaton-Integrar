@@ -7,7 +7,6 @@ const COLORES = ["#b71c1c", "#e53935", "#ff3d00", "#ff6d00", "#ff9100", "#ffab00
 export function ExplosionPixelada({ onFin }: { onFin?: () => void }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const onFinRef = useRef(onFin);
-  onFinRef.current = onFin;
 
   useEffect(() => {
     onFinRef.current = onFin;
