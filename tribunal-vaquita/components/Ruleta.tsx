@@ -16,7 +16,7 @@ export function Ruleta({ sorteado, onResultado }: { sorteado: string; onResultad
   return <div>
     <p>Le toca a <b>{sorteado}</b>. Que gire la ruleta.</p>
     <div className="ruleta-puntero">▼</div>
-    <div className="ruleta" style={{ background: fondo }}>
+    <div className={`ruleta${girando ? " girando" : ""}`} style={{ background: fondo }}>
       {SEGMENTOS.map((s, i) => <span key={s.id} className="ruleta-etiqueta" style={{ transform: `rotate(${i * paso + paso / 2}deg)` }}>{s.etiqueta}</span>)}
     </div>
     <button onClick={girar} disabled={girando}>{girando ? "Girando..." : "🎰 ¡GIRAR!"}</button>

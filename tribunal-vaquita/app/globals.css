@@ -130,8 +130,32 @@ ul {
 ul li {
   padding: 0.4rem 0;
   border-bottom: 1px dashed #d7ccc8;
+  display: flex;
+  justify-content: space-between;
 }
 
 .fallo ul li {
   color: #3e2723;
 }
+
+.error { color: #b71c1c; margin: 0.5rem 0; font-weight: bold; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.acta-final { background: #fffdf5; border: 8px double #7b1e1e; padding: 2.5rem; color: #3e2723; box-shadow: 0 8px 20px #0003; }
+.acta-final h2, .acta-final h3 { font-family: Georgia, serif; color: #7b1e1e; }
+.acta-final h2 { text-align: center; letter-spacing: 0.08em; }
+.acta-final p, .acta-final li { font-family: Georgia, serif; line-height: 1.7; }
+.acta-firma { margin: 2.5rem auto 1.5rem; display: flex; flex-direction: column; align-items: center; font-family: "Brush Script MT", cursive; font-size: 1.35rem; }
+.acta-firma span { border-bottom: 1px solid #3e2723; padding: 0 3rem 0.25rem; }
+.acta-firma small { font-family: Georgia, serif; font-size: 0.75rem; }
+.acta-acciones { display: flex; gap: 0.75rem; justify-content: center; }
+@media print { .acta-acciones { display: none; } .acta-final { box-shadow: none; } }
+
+.ruleta-puntero { text-align: center; color: #b71c1c; font-size: 2rem; line-height: 1; }
+.ruleta { position: relative; width: min(86vw, 380px); aspect-ratio: 1; margin: 0.5rem auto 1.25rem; border: 10px solid #3e2723; border-radius: 50%; box-shadow: 0 6px 14px #0005; animation: none; }
+.ruleta.girando { animation: girar 5s cubic-bezier(.12,.7,.18,1); }
+.ruleta-etiqueta { position: absolute; left: 50%; top: 50%; width: 45%; transform-origin: 0 0; color: white; font-weight: bold; font-size: clamp(.65rem, 2.5vw, .9rem); text-shadow: 1px 1px 2px #000; text-align: center; }
+@keyframes girar { from { transform: rotate(0deg); } to { transform: rotate(1800deg); } }
+.acta-documento { border: 2px solid #7b1e1e; padding: 1.5rem; background: #fffdf5; }
+.acta-membrete { text-align: center; letter-spacing: .18em; font-weight: bold; color: #7b1e1e; }
+.acta-documento h2 { margin: .75rem 0; }
+.acta-documento h3 { margin-top: 1.25rem; }

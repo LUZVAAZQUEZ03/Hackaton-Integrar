@@ -30,15 +30,6 @@ export function Formulario({ onSubmit }: { onSubmit: (ps: Participante[]) => voi
     setError("");
   };
 
-  const cargarEjemplo = () => {
-    const ejemplo: Participante[] = [
-      { id: "1", nombre: "Ana", aportado: 500 },
-      { id: "2", nombre: "Beto", aportado: 300 },
-      { id: "3", nombre: "Carlos", aportado: 200 },
-    ];
-    setLista(ejemplo);
-  };
-
   return (
     <div className="formulario">
       <h2>Formulario de Participantes</h2>
@@ -61,16 +52,12 @@ export function Formulario({ onSubmit }: { onSubmit: (ps: Participante[]) => voi
         </button>
       </div>
 
-      <button className="btn-ejemplo" onClick={cargarEjemplo}>
-        Cargar ejemplo
-      </button>
-
       {error && <p role="alert" className="error">{error}</p>}
       <h3>Participantes ({lista.length})</h3>
       <ul>
         {lista.map((p) => (
           <li key={p.id}>
-            {p.nombre}: $${p.aportado}
+            <strong>{p.nombre}</strong><span>${p.aportado.toFixed(2)}</span>
           </li>
         ))}
       </ul>

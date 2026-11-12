@@ -122,6 +122,18 @@ export default function Página() {
       )}
       {fase === "acta" && (
         <div className="acta-final">
+          <div className="acta-documento">
+            <p className="acta-membrete">TRIBUNAL DE LA VAQUITA</p>
+            <h2>ACTA OFICIAL DE VEREDICTO</h2>
+            <p>Expediente: {fallo?.expediente ?? "—"}</p>
+            <h3>Fallo del tribunal</h3>
+            <p><strong>Juez:</strong> {fallo?.juez} {fallo?.emoji}</p>
+            <ul>{fallo?.lineas.map((linea, i) => <li key={i}>{linea}</li>)}</ul>
+            <p>{fallo?.cierre}</p>
+            <h3>Decreto final</h3>
+            <p>{decreto}</p>
+            <div className="acta-firma"><span>Con firma y sello</span><strong>La Justicia Vaquiteril</strong><small>Tribunal de la Vaquita</small></div>
+          </div>
           <h2>DECRETO FINAL</h2>
           <p>{decreto}</p>
           {premioInvalidado && <p><strong>⚠️ Premio invalidado: la carta de exención queda sin efecto.</strong></p>}
