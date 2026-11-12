@@ -1,3 +1,5 @@
+import { Fallo, Deuda } from "./tipos";
+
 const pick = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
 
 type Juez = { nombre: string; emoji: string; apertura: string[]; castigo: string[]; cierre: string[] };
@@ -11,7 +13,7 @@ export const JUECES: Juez[] = [
   },
 ];
 
-export function emitirFallo(deudas: any[]): Fallo {
+export function emitirFallo(deudas: Deuda[]): Fallo {
   const j = pick(JUECES);
   const prob = "50.0";
   return {

@@ -47,3 +47,91 @@ a {
     color-scheme: dark;
   }
 }
+
+/* ===== Tribunal de la Vaquita ===== */
+
+.contenedor {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.formulario,
+.fallo {
+  background: #fff8e1;
+  border: 3px solid #b71c1c;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.formulario h2,
+.fallo h2 {
+  color: #b71c1c;
+  margin-bottom: 1rem;
+}
+
+.formulario h3 {
+  margin: 1rem 0 0.5rem;
+}
+
+.fila {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.input {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.5rem;
+  border: 2px solid #d7ccc8;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #b71c1c;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #8b1515;
+}
+
+.btn-ejemplo {
+  background: #ff6d00;
+  margin-bottom: 0.5rem;
+}
+
+.btn-ejemplo:hover {
+  background: #e65100;
+}
+
+.btn-convocar {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #d7ccc8;
+}
+
+.fallo ul li {
+  color: #3e2723;
+}
