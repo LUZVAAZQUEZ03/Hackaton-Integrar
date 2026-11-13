@@ -83,6 +83,9 @@ a {
 .formulario h3 {
   margin: 1rem 0 0.5rem;
 }
+.formulario h2::after { content: ""; display: block; width: 4rem; height: 3px; margin-top: .6rem; background: var(--gold); }
+.formulario .input:focus { outline: 3px solid #d99b3555; border-color: var(--gold); }
+.formulario ul li { min-height: 2.4rem; align-items: center; }
 
 .fila {
   display: flex;
