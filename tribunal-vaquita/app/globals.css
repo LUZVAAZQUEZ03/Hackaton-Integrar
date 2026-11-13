@@ -1,6 +1,9 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6efe3;
+  --foreground: #2d211d;
+  --ink: #2d211d;
+  --red: #8f2020;
+  --gold: #d99b35;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--foreground);
-  background: var(--background);
+  background: radial-gradient(circle at top, #fffaf0 0, var(--background) 55%, #ead7bd 100%);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,17 +54,24 @@ a {
 /* ===== Tribunal de la Vaquita ===== */
 
 .contenedor {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
+.marca { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-bottom: 1.5rem; color: var(--red); text-align: left; }
+.marca-icono { display: grid; place-items: center; width: 3rem; height: 3rem; border: 3px solid var(--gold); border-radius: 50%; font-size: 1.6rem; }
+.marca p { font-size: .7rem; letter-spacing: .28em; font-weight: bold; }
+.marca h1 { font: 700 2rem Georgia, serif; }
+.pantalla { text-align: center; }
+.ganador { margin-bottom: .8rem; color: var(--red); }
 
 .formulario,
 .fallo {
-  background: #fff8e1;
-  border: 3px solid #b71c1c;
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(255, 250, 240, .96);
+  border: 1px solid #d7b46a;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px #4c24151c;
 }
 
 .formulario h2,
@@ -97,10 +107,11 @@ button {
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  background: #b71c1c;
+  background: var(--red);
   color: #fff;
   transition: background 0.2s;
 }
+button:hover { transform: translateY(-1px); filter: brightness(1.08); }
 
 button:hover {
   background: #8b1515;
@@ -182,3 +193,4 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .acta-membrete { text-align: center; letter-spacing: .18em; font-weight: bold; color: #7b1e1e; }
 .acta-documento h2 { margin: .75rem 0; }
 .acta-documento h3 { margin-top: 1.25rem; }
+@media (max-width: 560px) { .contenedor { padding: 1.25rem .75rem; } .formulario, .fallo, .acta-final { padding: 1.1rem; } .marca h1 { font-size: 1.6rem; } .fila > * { width: 100%; } .acta-acciones { flex-direction: column; } }
